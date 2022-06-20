@@ -38,8 +38,8 @@ public class HomeBusinessController extends AbstractBusinessController
     }
 
     @Override
-    public void showListGames() {
-        transactionDelegate.initListGames();
+    public void showListGames(int id) {
+        transactionDelegate.initListGames(id);
     }
 
     @Override

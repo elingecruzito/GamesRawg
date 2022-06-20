@@ -3,10 +3,12 @@ package com.developbyte.gamesrawg.ListGames;
 import android.util.Log;
 
 import com.developbyte.gamesrawg.Abstract.AbstractBusinessController;
+import com.developbyte.gamesrawg.Model.GamesListModel;
 
 public class ListGamesBusinessController extends AbstractBusinessController
                         implements IListGames.IListGamesTransactionHandler,
                         IListGames.IListGamesRepresentationDelegate,
+                        IListGames.IListGamesInformationHandler,
                         IListGames.IListGamesInformationDelegate{
 
     private IListGames.IListGamesRepresentationHandler representationHandler;
@@ -26,9 +28,18 @@ public class ListGamesBusinessController extends AbstractBusinessController
     }
 
     @Override
-    public void startListGames() {
-        representationHandler.showListGames();
+    public void startListGames(int id) {
+        representationHandler.showListGames(id);
     }
 
 
+    @Override
+    public void setGames(GamesListModel gamesListModel) {
+        representationHandler.setGames(gamesListModel);
+    }
+
+    @Override
+    public void getGames(int id) {
+        informationHandler.getGames(id);
+    }
 }

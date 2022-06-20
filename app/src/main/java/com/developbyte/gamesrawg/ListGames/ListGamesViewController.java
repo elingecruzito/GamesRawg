@@ -6,13 +6,22 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.developbyte.gamesrawg.Abstract.AbstractViewController;
+import com.developbyte.gamesrawg.Adapters.ListGamesAdapter;
+import com.developbyte.gamesrawg.Model.GamesListModel;
 import com.developbyte.gamesrawg.R;
 
 public class ListGamesViewController extends AbstractViewController implements IListGames.IListGamesRepresentationHandler {
 
     private IListGames.IListGamesRepresentationDelegate representationDelegate;
+    private int id;
+
+    private RecyclerView listGames;
+    private LinearLayoutManager layoutManagerListGames;
+    private ListGamesAdapter listListAdapter;
     
 
     public void setRepresentationDelegate(IListGames.IListGamesRepresentationDelegate representationDelegate) {
@@ -23,7 +32,10 @@ public class ListGamesViewController extends AbstractViewController implements I
     public View init(LayoutInflater inflater, ViewGroup container) {
         view = inflater.inflate(R.layout.content_listgames, container, false);
 
-
+        listGames = view.findViewById(R.id.lst_games_genere);
+        listGames.setVisibility(View.GONE);
+        layoutManagerListGames = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false);
+        listGames.setLayoutManager(layoutManagerListGames);
 
 
         return view;
@@ -31,7 +43,7 @@ public class ListGamesViewController extends AbstractViewController implements I
 
     @Override
     public void resume() {
-
+        representationDelegate.getGames(this.id);
     }
 
     @Override
@@ -52,7 +64,15 @@ public class ListGamesViewController extends AbstractViewController implements I
     }
 
     @Override
-    public void showListGames() {
+    public void showListGames(int id) {
+        this.id = id;
         masterViewController.presetFragment(this.tag);
+    }
+
+    @Override
+    public void setGames(GamesListModel gamesListModel) {
+        listListAdapter = new ListGamesAdapter(gamesListModel, getContext(), representationDelegate);
+        listGames.setAdapter(listListAdapter);
+        listGames.setVisibility(View.VISIBLE);
     }
 }

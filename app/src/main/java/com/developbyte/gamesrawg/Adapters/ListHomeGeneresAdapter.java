@@ -41,8 +41,7 @@ public class ListHomeGeneresAdapter extends RecyclerView.Adapter<ListHomeGeneres
         holder.txtTitleGenere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(getClass().getName(), generesListModel.getResults().get(position).getId() + " | " + generesListModel.getResults().get(position).getName());
-                representationDelegate.showListGames();
+                representationDelegate.showListGames(generesListModel.getResults().get(position).getId());
             }
         });
     }

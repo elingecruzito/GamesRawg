@@ -9,6 +9,7 @@ import com.developbyte.gamesrawg.ListGames.ListGamesBusinessController;
 import com.developbyte.gamesrawg.ListGames.ListGamesViewController;
 import com.developbyte.gamesrawg.Search.SearchBusinessController;
 import com.developbyte.gamesrawg.Search.SearchViewController;
+import com.developbyte.gamesrawg.Services.GenereGameService;
 import com.developbyte.gamesrawg.Services.HomeService;
 import com.developbyte.gamesrawg.Services.RetrofitResponse;
 import com.developbyte.gamesrawg.Services.SearchService;
@@ -73,13 +74,18 @@ public class InjectionManager {
 
         ListGamesBusinessController listgamesBusinessController = new ListGamesBusinessController();
         ListGamesViewController listgamesViewController = new ListGamesViewController();
+        GenereGameService genereGameService = new GenereGameService();
 
         listgamesBusinessController.setRepresentationHandler(listgamesViewController);
         listgamesBusinessController.setTransactionDelegate(masterBusinessController);
+        listgamesBusinessController.setInformationHandler(genereGameService);
 
         listgamesViewController.setTag(HomeMasterViewController.LISTGAMES_CONTROLLER);
         listgamesViewController.setRepresentationDelegate(listgamesBusinessController);
         listgamesViewController.setMasterViewController(homeMasterViewController);
+
+        genereGameService.setiListGamesInformationDelegate(listgamesBusinessController);
+        genereGameService.setCuentaService(retrofitResponse);
 
         homeMasterViewController.addFragment(listgamesViewController);
         masterBusinessController.setListGamesTransactionHandler(listgamesBusinessController);

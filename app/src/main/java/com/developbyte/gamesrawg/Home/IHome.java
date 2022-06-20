@@ -12,7 +12,7 @@ public interface IHome {
     //Comunica de BussinesController a MasterBussinesController
     interface IHomeTransactionDelegate{
         void initSearch();
-        void initListGames();
+        void initListGames(int id);
         void initInfoGame();
     }
 
@@ -41,7 +41,7 @@ public interface IHome {
     //Comunica de ViewController a Businnes
     interface IHomeRepresentationDelegate{
         void showSearch();
-        void showListGames();
+        void showListGames(int id);
         void showInfoGame();
 
         void getAllGeneres();
