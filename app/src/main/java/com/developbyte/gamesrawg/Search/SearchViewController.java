@@ -1,28 +1,27 @@
-package com.developbyte.gamesrawg.Wishlist;
+package com.developbyte.gamesrawg.Search;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.fragment.app.FragmentManager;
 
 import com.developbyte.gamesrawg.Abstract.AbstractViewController;
 import com.developbyte.gamesrawg.R;
 
-public class WishlistViewController extends AbstractViewController implements IWishlist.IWishlistRepresentationHandler {
+public class SearchViewController extends AbstractViewController implements ISearch.ISearchRepresentationHandler {
 
-    private IWishlist.IWishlistRepresentationDelegate representationDelegate;
+    private ISearch.ISearchRepresentationDelegate representationDelegate;
     
 
-    public void setRepresentationDelegate(IWishlist.IWishlistRepresentationDelegate representationDelegate) {
+    public void setRepresentationDelegate(ISearch.ISearchRepresentationDelegate representationDelegate) {
         this.representationDelegate = representationDelegate;
     }
 
     @Override
     public View init(LayoutInflater inflater, ViewGroup container) {
-        view = inflater.inflate(R.layout.content_wishlist, container, false);
+        view = inflater.inflate(R.layout.content_search, container, false);
 
 
 
@@ -53,7 +52,7 @@ public class WishlistViewController extends AbstractViewController implements IW
     }
 
     @Override
-    public void showWishlist() {
+    public void showSearch() {
         masterViewController.presetFragment(this.tag);
     }
 }

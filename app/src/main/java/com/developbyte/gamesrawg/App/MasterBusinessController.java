@@ -1,19 +1,31 @@
 package com.developbyte.gamesrawg.App;
 
 import com.developbyte.gamesrawg.Home.IHome;
-import com.developbyte.gamesrawg.Wishlist.IWishlist;
-
-public class MasterBusinessController implements IHome.IHomeTransactionDelegate, IWishlist.IWishlistTransactionDelegate{
+import com.developbyte.gamesrawg.InfoGame.IInfoGame;
+import com.developbyte.gamesrawg.ListGames.IListGames;
+import com.developbyte.gamesrawg.Search.ISearch;
+public class MasterBusinessController implements IHome.IHomeTransactionDelegate,
+        ISearch.ISearchTransactionDelegate,
+        IListGames.IListGamesTransactionDelegate,
+        IInfoGame.IInfoGameTransactionDelegate{
 
     private IHome.IHomeTransactionHandler homeTransactionHandler;
-    private IWishlist.IWishlistTransactionHandler wishlistTransactionHandler;
+    private ISearch.ISearchTransactionHandler searchTransactionHandler;
+    private IListGames.IListGamesTransactionHandler listgamesTransactionHandler;
+    private IInfoGame.IInfoGameTransactionHandler infogameTransactionHandler;
 
 
     public void setHomeTransactionHandler(IHome.IHomeTransactionHandler homeTransactionHandler) {
         this.homeTransactionHandler = homeTransactionHandler;
     }
-    public void setWishlistTransactionHandler(IWishlist.IWishlistTransactionHandler wishlistTransactionHandler) {
-        this.wishlistTransactionHandler = wishlistTransactionHandler;
+    public void setSearchTransactionHandler(ISearch.ISearchTransactionHandler searchTransactionHandler) {
+        this.searchTransactionHandler = searchTransactionHandler;
+    }
+    public void setListGamesTransactionHandler(IListGames.IListGamesTransactionHandler listgamesTransactionHandler) {
+        this.listgamesTransactionHandler = listgamesTransactionHandler;
+    }
+    public void setInfoGameTransactionHandler(IInfoGame.IInfoGameTransactionHandler infogameTransactionHandler) {
+        this.infogameTransactionHandler = infogameTransactionHandler;
     }
 
 
@@ -21,8 +33,17 @@ public class MasterBusinessController implements IHome.IHomeTransactionDelegate,
         homeTransactionHandler.startHome();
     }
     @Override
-    public void initWishlist() {
-        wishlistTransactionHandler.startWishlist();
+    public void initSearch() {
+        searchTransactionHandler.startSearch();
     }
+    @Override
+    public void initListGames() {
+        listgamesTransactionHandler.startListGames();
+    }
+    @Override
+    public void initInfoGame() {
+        infogameTransactionHandler.startInfoGame();
+    }
+
 
 }

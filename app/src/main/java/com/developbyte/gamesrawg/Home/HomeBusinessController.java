@@ -33,8 +33,18 @@ public class HomeBusinessController extends AbstractBusinessController
     }
 
     @Override
-    public void showWishlist() {
-        transactionDelegate.initWishlist();
+    public void showSearch() {
+        transactionDelegate.initSearch();
+    }
+
+    @Override
+    public void showListGames() {
+        transactionDelegate.initListGames();
+    }
+
+    @Override
+    public void showInfoGame() {
+        transactionDelegate.initInfoGame();
     }
 
     @Override

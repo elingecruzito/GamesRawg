@@ -11,8 +11,9 @@ public interface IHome {
     
     //Comunica de BussinesController a MasterBussinesController
     interface IHomeTransactionDelegate{
-        void initWishlist();
-        
+        void initSearch();
+        void initListGames();
+        void initInfoGame();
     }
 
     //Comunica de BusinessController a ViewController
@@ -39,7 +40,10 @@ public interface IHome {
 
     //Comunica de ViewController a Businnes
     interface IHomeRepresentationDelegate{
-        void showWishlist();
+        void showSearch();
+        void showListGames();
+        void showInfoGame();
+
         void getAllGeneres();
         void getRecomendateGames();
         void getNewGames();

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,7 +22,7 @@ import com.developbyte.gamesrawg.R;
 public class HomeViewController extends AbstractViewController implements IHome.IHomeRepresentationHandler {
 
     private IHome.IHomeRepresentationDelegate representationDelegate;
-    private Button btnWishlist;
+    private ImageView imgBtnSeach;
 
     private RecyclerView listGeneres;
     private LinearLayoutManager layoutManagerGeneres;
@@ -43,16 +44,14 @@ public class HomeViewController extends AbstractViewController implements IHome.
     @Override
     public View init(LayoutInflater inflater, ViewGroup container) {
         view = inflater.inflate(R.layout.content_home, container, false);
-        /*
-        btnWishlist = view.findViewById(R.id.btnWishlist);
 
-        btnWishlist.setOnClickListener(new View.OnClickListener() {
+        imgBtnSeach = view.findViewById(R.id.img_btn_seach);
+        imgBtnSeach.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                representationDelegate.showWishlist();
+            public void onClick(View view) {
+                representationDelegate.showSearch();
             }
         });
-        */
 
         listGeneres = view.findViewById(R.id.list_generes);
         listRecomendateGames = view.findViewById(R.id.list_recomendation);
@@ -96,7 +95,7 @@ public class HomeViewController extends AbstractViewController implements IHome.
         layoutManagerGeneres = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         listGeneres.setLayoutManager(layoutManagerGeneres);
 
-        listHomeGeneresAdapter = new ListHomeGeneresAdapter(allGeneres);
+        listHomeGeneresAdapter = new ListHomeGeneresAdapter(allGeneres, representationDelegate);
         listGeneres.setAdapter(listHomeGeneresAdapter);
     }
 
@@ -105,7 +104,7 @@ public class HomeViewController extends AbstractViewController implements IHome.
         layoutManagerRecomendateGames = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         listRecomendateGames.setLayoutManager(layoutManagerRecomendateGames);
 
-        listHomeRecomendateGamesAdapter = new ListHomeRecomendateGamesAdapter(gamesListModel, getContext());
+        listHomeRecomendateGamesAdapter = new ListHomeRecomendateGamesAdapter(gamesListModel, getContext(), representationDelegate);
         listRecomendateGames.setAdapter(listHomeRecomendateGamesAdapter);
     }
 
@@ -117,7 +116,7 @@ public class HomeViewController extends AbstractViewController implements IHome.
         layoutManagerNewGames = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         listNewGames.setLayoutManager(layoutManagerNewGames);
 
-        listHomeNewGamesAdapter = new ListHomeNewGamesAdapter(newGames, getContext());
+        listHomeNewGamesAdapter = new ListHomeNewGamesAdapter(newGames, getContext(), representationDelegate);
         listNewGames.setAdapter(listHomeNewGamesAdapter);
     }
 }

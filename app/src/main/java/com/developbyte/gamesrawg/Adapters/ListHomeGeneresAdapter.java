@@ -13,15 +13,18 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.developbyte.gamesrawg.Home.IHome;
 import com.developbyte.gamesrawg.Model.GeneresListModel;
 import com.developbyte.gamesrawg.R;
 import com.squareup.picasso.Picasso;import java.util.Random;
 public class ListHomeGeneresAdapter extends RecyclerView.Adapter<ListHomeGeneresAdapter.ViewHolder>{
 
     private GeneresListModel generesListModel;
+    private IHome.IHomeRepresentationDelegate representationDelegate;
 
-    public ListHomeGeneresAdapter(GeneresListModel generesListModel) {
+    public ListHomeGeneresAdapter(GeneresListModel generesListModel, IHome.IHomeRepresentationDelegate representationDelegate) {
         this.generesListModel = generesListModel;
+        this.representationDelegate = representationDelegate;
     }
 
     @NonNull
@@ -35,7 +38,13 @@ public class ListHomeGeneresAdapter extends RecyclerView.Adapter<ListHomeGeneres
     @Override
     public void onBindViewHolder(@NonNull ListHomeGeneresAdapter.ViewHolder holder, int position) {
         holder.txtTitleGenere.setText(generesListModel.getResults().get(position).getName());
-
+        holder.txtTitleGenere.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i(getClass().getName(), generesListModel.getResults().get(position).getId() + " | " + generesListModel.getResults().get(position).getName());
+                representationDelegate.showListGames();
+            }
+        });
     }
 
     @Override

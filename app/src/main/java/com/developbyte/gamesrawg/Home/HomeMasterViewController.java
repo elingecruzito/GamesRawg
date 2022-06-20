@@ -23,10 +23,12 @@ public class HomeMasterViewController extends AppCompatActivity implements IMast
     private ArrayList<Integer> tags;
 
     public static final int HOME_CONTROLLER = 0;
-    public static final int WISHLIST_CONTROLLER = 1;
+    public static final int SEARCH_CONTROLLER = 1;
+    public static final int LISTGAMES_CONTROLLER = 2;
+    public static final int INFOGAME_CONTROLLER = 3;
 
 
-    @IntDef({HOME_CONTROLLER,WISHLIST_CONTROLLER})
+    @IntDef({HOME_CONTROLLER,SEARCH_CONTROLLER,LISTGAMES_CONTROLLER,INFOGAME_CONTROLLER})
     @Retention(RetentionPolicy.SOURCE)
     public @interface ProfileControllers{}
 
