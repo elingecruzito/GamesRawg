@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:background="@color/background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/ThemeTitleHome"
+                android:text="@string/lbl_title_home"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right|center_vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="5dp"
+                    android:background="@drawable/border_search_section"
+                    android:src="@drawable/ic_search"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_generes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ThemeLists"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ThemeTitles"
+            android:text="@string/lbl_title_recomendation"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_recomendation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ThemeLists"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ThemeTitles"
+            android:text="@string/lbl_title_new_games"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_new_games"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            style="@style/ThemeLists"/>
+
+        <!--LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom|center_horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnWishlist"
+                android:text="Wishlist"/>
+
+        </LinearLayout-->
+
+    </LinearLayout>
+
+</ScrollView>

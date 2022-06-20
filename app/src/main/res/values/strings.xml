@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">GamesRawg</string>
+    <!--............................................................HOME............................................................-->
+
+    <string name="lbl_title_home">Home</string>
+    <string name="lbl_title_recomendation">Recomendation</string>
+    <string name="lbl_title_new_games">New Games</string>
+
+    <string name="lbl_release_date">Release date:</string>
+    <string name="lbl_generes">Genres:</string>
+</resources>

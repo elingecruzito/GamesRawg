@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingRight="10dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_title_genere"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:textColor="@color/neutral"
+        android:text="Genero"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
