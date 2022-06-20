@@ -48,7 +48,8 @@ public class GamesListModel {
         @SerializedName("metacritic")
         private int metacritic;
 
-        private String generes;
+        private String aux;
+
 
         public int getId() {
             return id;
@@ -78,8 +79,17 @@ public class GamesListModel {
             return ratings_count;
         }
 
-        public List<Platforms> getPlatforms() {
-            return platforms;
+        public String getPlatforms() {
+            aux = "";
+
+            for (int i = 0; i < platforms.size(); i++){
+                aux += platforms.get(i).getPlatform().getName();
+                if( i < platforms.size() - 1){
+                    aux += ", ";
+                }
+            }
+
+            return aux;
         }
 
         public int getMetacritic() {
@@ -87,14 +97,11 @@ public class GamesListModel {
         }
 
         public String getGenres() {
-            generes = "";
+            aux = "";
             for(int i = 0; i < genres.size(); i++){
-                generes += genres.get(i).name;
-                if( i < genres.size() - 1){
-                    generes += " ";
-                }
+                aux += genres.get(i).name + " ";
             }
-            return generes;
+            return aux;
         }
 
         public class Platforms{

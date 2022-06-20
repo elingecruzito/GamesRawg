@@ -3,9 +3,11 @@ package com.developbyte.gamesrawg.Search;
 import android.util.Log;
 
 import com.developbyte.gamesrawg.Abstract.AbstractBusinessController;
+import com.developbyte.gamesrawg.Model.GamesListModel;
 
 public class SearchBusinessController extends AbstractBusinessController
                         implements ISearch.ISearchTransactionHandler,
+                        ISearch.ISearchInformationHandler,
                         ISearch.ISearchRepresentationDelegate,
                         ISearch.ISearchInformationDelegate{
 
@@ -31,4 +33,13 @@ public class SearchBusinessController extends AbstractBusinessController
     }
 
 
+    @Override
+    public void setSeachListGames(GamesListModel listGames) {
+        representationHandler.setSeachListGames(listGames);
+    }
+
+    @Override
+    public void searchGames(String query) {
+        informationHandler.searchGames(query);
+    }
 }

@@ -8,4 +8,8 @@
 
     <string name="lbl_release_date">Release date:</string>
     <string name="lbl_generes">Genres:</string>
+
+    <!--............................................................SEARCH............................................................-->
+
+    <string name="lbl_title_search">Search...</string>
 </resources>

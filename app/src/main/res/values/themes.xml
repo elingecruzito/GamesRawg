@@ -14,14 +14,14 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="ThemeTitleHome">
+    <style name="ThemeTitles">
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">25dp</item>
         <item name="android:paddingTop">15dp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="ThemeTitles">
+    <style name="ThemeSubTitles">
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">18dp</item>
         <item name="android:paddingTop">15dp</item>
@@ -29,5 +29,11 @@
 
     <style name="ThemeLists">
         <item name="android:paddingTop">15dp</item>
+    </style>
+
+    <style name="ThemeInputEditText">
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 </resources>

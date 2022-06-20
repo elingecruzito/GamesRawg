@@ -11,6 +11,7 @@ import com.developbyte.gamesrawg.Search.SearchBusinessController;
 import com.developbyte.gamesrawg.Search.SearchViewController;
 import com.developbyte.gamesrawg.Services.HomeService;
 import com.developbyte.gamesrawg.Services.RetrofitResponse;
+import com.developbyte.gamesrawg.Services.SearchService;
 
 
 public class InjectionManager {
@@ -53,13 +54,18 @@ public class InjectionManager {
 
         SearchBusinessController searchBusinessController = new SearchBusinessController();
         SearchViewController searchViewController = new SearchViewController();
+        SearchService searchService = new SearchService();
 
         searchBusinessController.setRepresentationHandler(searchViewController);
         searchBusinessController.setTransactionDelegate(masterBusinessController);
+        searchBusinessController.setInformationHandler(searchService);
 
         searchViewController.setTag(HomeMasterViewController.SEARCH_CONTROLLER);
         searchViewController.setRepresentationDelegate(searchBusinessController);
         searchViewController.setMasterViewController(homeMasterViewController);
+
+        searchService.setCuentaService(retrofitResponse);
+        searchService.setiSearchInformationDelegate(searchBusinessController);
 
         homeMasterViewController.addFragment(searchViewController);
         masterBusinessController.setSearchTransactionHandler(searchBusinessController);

@@ -1,10 +1,6 @@
 package com.developbyte.gamesrawg.Services;
 
 import android.util.Log;
-
-import com.developbyte.gamesrawg.Model.GamesListModel;
-
-import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
