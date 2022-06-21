@@ -13,7 +13,7 @@ public interface IHome {
     interface IHomeTransactionDelegate{
         void initSearch();
         void initListGames(int id);
-        void initInfoGame();
+        void initInfoGame(int id);
     }
 
     //Comunica de BusinessController a ViewController
@@ -42,7 +42,7 @@ public interface IHome {
     interface IHomeRepresentationDelegate{
         void showSearch();
         void showListGames(int id);
-        void showInfoGame();
+        void showInfoGame(int id);
 
         void getAllGeneres();
         void getRecomendateGames();

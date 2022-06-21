@@ -3,6 +3,7 @@ package com.developbyte.gamesrawg.InfoGame;
 import android.util.Log;
 
 import com.developbyte.gamesrawg.Abstract.AbstractBusinessController;
+import com.developbyte.gamesrawg.Model.InfoGameModel;
 
 public class InfoGameBusinessController extends AbstractBusinessController
                         implements IInfoGame.IInfoGameTransactionHandler,
@@ -26,9 +27,18 @@ public class InfoGameBusinessController extends AbstractBusinessController
     }
 
     @Override
-    public void startInfoGame() {
-        representationHandler.showInfoGame();
+    public void startInfoGame(int id) {
+        representationHandler.showInfoGame(id);
     }
 
 
+    @Override
+    public void setInfoGame(InfoGameModel infoGame) {
+        representationHandler.setInfoGame(infoGame);
+    }
+
+    @Override
+    public void getInfoGame(int id) {
+        informationHandler.getInfoGame(id);
+    }
 }

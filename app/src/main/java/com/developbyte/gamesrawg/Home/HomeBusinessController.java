@@ -43,8 +43,8 @@ public class HomeBusinessController extends AbstractBusinessController
     }
 
     @Override
-    public void showInfoGame() {
-        transactionDelegate.initInfoGame();
+    public void showInfoGame(int id) {
+        transactionDelegate.initInfoGame(id);
     }
 
     @Override

@@ -49,7 +49,7 @@ public class ListHomeRecomendateGamesAdapter extends RecyclerView.Adapter<ListHo
             @Override
             public void onClick(View view) {
                 Log.i(getClass().getName(), gamesListModels.getResults().get(position).getId()+" | "+gamesListModels.getResults().get(position).getName());
-                representationDelegate.showInfoGame();
+                representationDelegate.showInfoGame(gamesListModels.getResults().get(position).getId());
             }
         });
 

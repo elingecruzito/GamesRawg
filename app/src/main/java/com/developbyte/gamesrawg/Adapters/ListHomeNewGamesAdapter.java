@@ -45,7 +45,7 @@ public class ListHomeNewGamesAdapter extends RecyclerView.Adapter<ListHomeNewGam
             @Override
             public void onClick(View view) {
                 Log.i(getClass().getName(), gamesListModel.getResults().get(position).getId()+" | "+gamesListModel.getResults().get(position).getName());
-                representationDelegate.showInfoGame();
+                representationDelegate.showInfoGame(gamesListModel.getResults().get(position).getId());
             }
         });
     }

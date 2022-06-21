@@ -15,7 +15,7 @@ public class GenereGameService extends AbstractService implements IListGames.ILi
 
     private IListGames.IListGamesInformationDelegate iListGamesInformationDelegate;
     private RetrofitResponse retrofitResponse;
-    private IHomeService cuentaService;
+    private IGenereGame cuentaService;
     private Map<String, String> data = new HashMap<>();
 
     public void setiListGamesInformationDelegate(IListGames.IListGamesInformationDelegate iListGamesInformationDelegate) {
@@ -24,7 +24,7 @@ public class GenereGameService extends AbstractService implements IListGames.ILi
 
     public void setCuentaService(RetrofitResponse retrofitResponse) {
         this.retrofitResponse = retrofitResponse;
-        cuentaService = retrofitResponse.createRetroFit(RetrofitResponse.BASE_URL).create(IHomeService.class);
+        cuentaService = retrofitResponse.createRetroFit(RetrofitResponse.BASE_URL).create(IGenereGame.class);
     }
 
     @Override

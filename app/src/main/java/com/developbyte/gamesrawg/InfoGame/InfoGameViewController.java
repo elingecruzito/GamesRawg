@@ -8,11 +8,13 @@ import android.view.ViewGroup;
 import androidx.fragment.app.FragmentManager;
 
 import com.developbyte.gamesrawg.Abstract.AbstractViewController;
+import com.developbyte.gamesrawg.Model.InfoGameModel;
 import com.developbyte.gamesrawg.R;
 
 public class InfoGameViewController extends AbstractViewController implements IInfoGame.IInfoGameRepresentationHandler {
 
     private IInfoGame.IInfoGameRepresentationDelegate representationDelegate;
+    private int id;
     
 
     public void setRepresentationDelegate(IInfoGame.IInfoGameRepresentationDelegate representationDelegate) {
@@ -25,13 +27,12 @@ public class InfoGameViewController extends AbstractViewController implements II
 
 
 
-
         return view;
     }
 
     @Override
     public void resume() {
-
+        representationDelegate.getInfoGame(id);
     }
 
     @Override
@@ -52,7 +53,13 @@ public class InfoGameViewController extends AbstractViewController implements II
     }
 
     @Override
-    public void showInfoGame() {
+    public void showInfoGame(int id) {
+        this.id = id;
         masterViewController.presetFragment(this.tag);
+    }
+
+    @Override
+    public void setInfoGame(InfoGameModel infoGame) {
+
     }
 }
