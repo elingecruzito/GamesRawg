@@ -10,7 +10,7 @@ public interface IListGames {
     
     //Comunica de BussinesController a MasterBussinesController
     interface IListGamesTransactionDelegate{
-        
+        void getInfoGame(int id);
     }
 
     //Comunica de BusinessController a ViewController
@@ -32,5 +32,6 @@ public interface IListGames {
     //Comunica de ViewController a Businnes
     interface IListGamesRepresentationDelegate{
         void getGames(int id);
+        void getInfoGame(int id);
     }
 }

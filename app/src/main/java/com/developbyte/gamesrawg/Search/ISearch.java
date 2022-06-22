@@ -10,7 +10,7 @@ public interface ISearch {
     
     //Comunica de BussinesController a MasterBussinesController
     interface ISearchTransactionDelegate{
-        
+        void getGame(int id);
     }
 
     //Comunica de BusinessController a ViewController
@@ -32,5 +32,6 @@ public interface ISearch {
     //Comunica de ViewController a Businnes
     interface ISearchRepresentationDelegate{
         void searchGames(String query);
+        void getGame(int id);
     }
 }

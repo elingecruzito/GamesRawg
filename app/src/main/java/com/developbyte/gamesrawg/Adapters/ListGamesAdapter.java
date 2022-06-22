@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -47,6 +48,14 @@ public class ListGamesAdapter extends RecyclerView.Adapter<ListGamesAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+        holder.lyGameSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                iListGamesRepresentationDelegate.getInfoGame(gamesListModel.getResults().get(position).getId());
+                clearAllItems();
+            }
+        });
         Picasso.with(context)
                 .load(gamesListModel.getResults().get(position).getBackground_image())
                 .fit()
@@ -72,6 +81,7 @@ public class ListGamesAdapter extends RecyclerView.Adapter<ListGamesAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
+        private LinearLayout lyGameSearch;
         private AppCompatImageView imgGame;
         private AppCompatTextView txtTitleGame;
         private AppCompatTextView txtMetacritic;
@@ -80,6 +90,7 @@ public class ListGamesAdapter extends RecyclerView.Adapter<ListGamesAdapter.View
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            lyGameSearch = itemView.findViewById(R.id.ly_game_search);
             imgGame = itemView.findViewById(R.id.img_game);
             txtTitleGame = itemView.findViewById(R.id.txt_title_game);
             txtMetacritic = itemView.findViewById(R.id.txt_metacritic);

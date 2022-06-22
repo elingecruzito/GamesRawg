@@ -46,4 +46,13 @@ public class MasterBusinessController implements IHome.IHomeTransactionDelegate,
     }
 
 
+    @Override
+    public void getGame(int id) {
+        this.initInfoGame(id);
+    }
+
+    @Override
+    public void getInfoGame(int id) {
+        this.initInfoGame(id);
+    }
 }

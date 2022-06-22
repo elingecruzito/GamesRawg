@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import androidx.fragment.app.FragmentManager;
@@ -29,6 +30,8 @@ public class SearchViewController extends AbstractViewController implements ISea
     private RecyclerView listSearchGames;
     private LinearLayoutManager layoutManagerSearchGames;
     private ListSearchGamesAdapter listSearchGamesAdapter;
+
+    private static final int resId = R.anim.layout_animation_up_to_down;
     
 
     public void setRepresentationDelegate(ISearch.ISearchRepresentationDelegate representationDelegate) {
@@ -40,8 +43,11 @@ public class SearchViewController extends AbstractViewController implements ISea
         view = inflater.inflate(R.layout.content_search, container, false);
 
         listSearchGames = view.findViewById(R.id.lst_games);
+
+
         layoutManagerSearchGames = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         listSearchGames.setLayoutManager(layoutManagerSearchGames);
+
         listSearchGamesAdapter = new ListSearchGamesAdapter(getContext(), representationDelegate);
         listSearchGames.setAdapter(listSearchGamesAdapter);
 
@@ -55,14 +61,13 @@ public class SearchViewController extends AbstractViewController implements ISea
             public void afterTextChanged(Editable editable) { representationDelegate.searchGames(editable.toString()); }
         });
 
-
+        representationDelegate.searchGames(txtGameSearch.getText().toString());
 
         return view;
     }
 
     @Override
     public void resume() {
-        representationDelegate.searchGames("");
     }
 
     @Override
@@ -78,8 +83,8 @@ public class SearchViewController extends AbstractViewController implements ISea
 
     @Override
     public void onBackPressed() {
-        FragmentManager fm = getActivity().getSupportFragmentManager();
-        fm.popBackStack();
+        listSearchGamesAdapter.clearAllItems();
+        getActivity().getSupportFragmentManager().popBackStack();
     }
 
     @Override
@@ -89,8 +94,7 @@ public class SearchViewController extends AbstractViewController implements ISea
 
     @Override
     public void setSeachListGames(GamesListModel listGames) {
-
+        listSearchGames.setLayoutAnimation(AnimationUtils.loadLayoutAnimation(getContext(), resId));
         listSearchGamesAdapter.setGamesListModel(listGames);
-
     }
 }

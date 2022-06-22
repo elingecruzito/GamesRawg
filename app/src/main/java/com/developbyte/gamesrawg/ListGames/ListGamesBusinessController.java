@@ -41,4 +41,9 @@ public class ListGamesBusinessController extends AbstractBusinessController
     public void getGames(int id) {
         informationHandler.getGames(id);
     }
+
+    @Override
+    public void getInfoGame(int id) {
+        transactionDelegate.getInfoGame(id);
+    }
 }

@@ -41,4 +41,9 @@ public class SearchBusinessController extends AbstractBusinessController
     public void searchGames(String query) {
         informationHandler.searchGames(query);
     }
+
+    @Override
+    public void getGame(int id) {
+        transactionDelegate.getGame(id);
+    }
 }
