@@ -22,10 +22,19 @@ public class ListGamesAdapter extends RecyclerView.Adapter<ListGamesAdapter.View
     private Context context;
     private IListGames.IListGamesRepresentationDelegate iListGamesRepresentationDelegate;
 
-    public ListGamesAdapter(GamesListModel gamesListModel, Context context, IListGames.IListGamesRepresentationDelegate iListGamesRepresentationDelegate) {
-        this.gamesListModel = gamesListModel;
+    public ListGamesAdapter(Context context, IListGames.IListGamesRepresentationDelegate iListGamesRepresentationDelegate) {
         this.context = context;
         this.iListGamesRepresentationDelegate = iListGamesRepresentationDelegate;
+    }
+
+    public void setGamesListModel(GamesListModel gamesListModel) {
+        this.gamesListModel = gamesListModel;
+        notifyDataSetChanged();
+    }
+
+    public void clearAllItems(){
+        gamesListModel = null;
+        notifyDataSetChanged();
     }
 
     @NonNull

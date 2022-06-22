@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,6 +24,7 @@ public class ListGamesViewController extends AbstractViewController implements I
     private RecyclerView listGames;
     private LinearLayoutManager layoutManagerListGames;
     private ListGamesAdapter listListAdapter;
+    private static final int resId = R.anim.layout_animation_up_to_down;
     
 
     public void setRepresentationDelegate(IListGames.IListGamesRepresentationDelegate representationDelegate) {
@@ -33,9 +36,12 @@ public class ListGamesViewController extends AbstractViewController implements I
         view = inflater.inflate(R.layout.content_listgames, container, false);
 
         listGames = view.findViewById(R.id.lst_games_genere);
-        listGames.setVisibility(View.GONE);
+
         layoutManagerListGames = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false);
         listGames.setLayoutManager(layoutManagerListGames);
+
+        listListAdapter = new ListGamesAdapter(getContext(), representationDelegate);
+        listGames.setAdapter(listListAdapter);
 
 
         return view;
@@ -59,8 +65,8 @@ public class ListGamesViewController extends AbstractViewController implements I
 
     @Override
     public void onBackPressed() {
-        FragmentManager fm = getActivity().getSupportFragmentManager();
-        fm.popBackStack();
+        listListAdapter.clearAllItems();
+        getActivity().getSupportFragmentManager().popBackStack();
     }
 
     @Override
@@ -71,8 +77,7 @@ public class ListGamesViewController extends AbstractViewController implements I
 
     @Override
     public void setGames(GamesListModel gamesListModel) {
-        listListAdapter = new ListGamesAdapter(gamesListModel, getContext(), representationDelegate);
-        listGames.setAdapter(listListAdapter);
-        listGames.setVisibility(View.VISIBLE);
+        listGames.setLayoutAnimation(AnimationUtils.loadLayoutAnimation(getContext(), resId));
+        listListAdapter.setGamesListModel(gamesListModel);
     }
 }
