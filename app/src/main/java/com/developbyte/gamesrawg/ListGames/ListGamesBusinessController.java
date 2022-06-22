@@ -8,7 +8,6 @@ import com.developbyte.gamesrawg.Model.GamesListModel;
 public class ListGamesBusinessController extends AbstractBusinessController
                         implements IListGames.IListGamesTransactionHandler,
                         IListGames.IListGamesRepresentationDelegate,
-                        IListGames.IListGamesInformationHandler,
                         IListGames.IListGamesInformationDelegate{
 
     private IListGames.IListGamesRepresentationHandler representationHandler;

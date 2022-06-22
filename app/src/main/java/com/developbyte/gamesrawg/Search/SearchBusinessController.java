@@ -7,7 +7,6 @@ import com.developbyte.gamesrawg.Model.GamesListModel;
 
 public class SearchBusinessController extends AbstractBusinessController
                         implements ISearch.ISearchTransactionHandler,
-                        ISearch.ISearchInformationHandler,
                         ISearch.ISearchRepresentationDelegate,
                         ISearch.ISearchInformationDelegate{
 

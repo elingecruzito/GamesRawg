@@ -1,4 +1,4 @@
-package com.developbyte.gamesrawg.Services;
+package com.developbyte.gamesrawg.Services.Interfaces;
 
 import com.developbyte.gamesrawg.Model.InfoGameModel;
 

@@ -3,6 +3,7 @@ package com.developbyte.gamesrawg.Services;
 import com.developbyte.gamesrawg.Abstract.AbstractService;
 import com.developbyte.gamesrawg.ListGames.IListGames;
 import com.developbyte.gamesrawg.Model.GamesListModel;
+import com.developbyte.gamesrawg.Services.Interfaces.IGenereGame;
 
 import java.util.HashMap;
 import java.util.Map;

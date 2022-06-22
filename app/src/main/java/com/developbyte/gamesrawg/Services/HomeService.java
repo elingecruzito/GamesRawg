@@ -1,12 +1,10 @@
 package com.developbyte.gamesrawg.Services;
 
-import android.util.Log;
-import android.widget.Toast;
-
 import com.developbyte.gamesrawg.Abstract.AbstractService;
 import com.developbyte.gamesrawg.Home.IHome;
 import com.developbyte.gamesrawg.Model.GamesListModel;
 import com.developbyte.gamesrawg.Model.GeneresListModel;
+import com.developbyte.gamesrawg.Services.Interfaces.IHomeService;
 
 import java.util.HashMap;
 import java.util.Map;

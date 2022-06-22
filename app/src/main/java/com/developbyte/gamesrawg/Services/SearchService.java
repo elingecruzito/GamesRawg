@@ -2,8 +2,9 @@ package com.developbyte.gamesrawg.Services;
 
 import com.developbyte.gamesrawg.Abstract.AbstractService;
 import com.developbyte.gamesrawg.Model.GamesListModel;
-import com.developbyte.gamesrawg.Model.GeneresListModel;
 import com.developbyte.gamesrawg.Search.ISearch;
+import com.developbyte.gamesrawg.Services.Interfaces.ISearchService;
+
 import java.util.HashMap;
 import java.util.Map;
 

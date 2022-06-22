@@ -3,6 +3,7 @@ package com.developbyte.gamesrawg.Services;
 import com.developbyte.gamesrawg.Abstract.AbstractService;
 import com.developbyte.gamesrawg.InfoGame.IInfoGame;
 import com.developbyte.gamesrawg.Model.InfoGameModel;
+import com.developbyte.gamesrawg.Services.Interfaces.IGameInfo;
 
 import java.util.HashMap;
 import java.util.Map;
